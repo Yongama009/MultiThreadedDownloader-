@@ -1,0 +1,15 @@
+# Compiled Java files
+*.class
+
+# Build output
+out/
+build/
+target/
+
+# Downloaded files
+downloads/*
+!downloads/.gitkeep
+
+# IDE files
+.idea/
+*.iml
