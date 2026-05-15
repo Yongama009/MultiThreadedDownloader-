@@ -91,6 +91,13 @@ public class DownloadTask implements Callable<Boolean> {
                 InputStream inputStream = connection.getInputStream();
                 RandomAccessFile file = new RandomAccessFile(outputFile, "rw")
         ) {
+            int responseCode = connection.getResponseCode();
+
+            if (responseCode != HttpURLConnection.HTTP_PARTIAL
+                    && (currentByte != 0 || responseCode != HttpURLConnection.HTTP_OK)) {
+                throw new IOException("Unexpected HTTP response " + responseCode);
+            }
+
             file.seek(currentByte);
 
             byte[] buffer = new byte[8192];

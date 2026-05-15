@@ -78,7 +78,7 @@ java -cp target/classes api.DownloadApiServer
 Start a REST download:
 
 ```bash
-curl -X POST "http://localhost:8080/download?url=https%3A%2F%2Fspeed.hetzner.de%2F100MB.bin&output=downloads/api-download.bin&threads=4"
+curl -X POST "http://localhost:8080/download?url=http%3A%2F%2Fspeedtest.tele2.net%2F100MB.zip&output=downloads/api-download.bin&threads=4"
 ```
 
 Check status:

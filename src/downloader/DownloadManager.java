@@ -73,7 +73,9 @@ public class DownloadManager {
             return;
         }
 
-        int activeThreads = (int) Math.min(numberOfThreads, fileSize);
+        int activeThreads = fileInfo.isRangeSupported()
+                ? (int) Math.min(numberOfThreads, fileSize)
+                : 1;
         long chunkSize = Math.max(1, fileSize / activeThreads);
         executorService = Executors.newFixedThreadPool(activeThreads);
         List<Future<Boolean>> futures = new ArrayList<>();

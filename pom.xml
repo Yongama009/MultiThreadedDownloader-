@@ -26,7 +26,10 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>gui.DownloaderApp</mainClass>
+                    <mainClass>gui.GuiLauncher</mainClass>
+                    <options>
+                        <option>-Djavafx.cachedir=${project.build.directory}/openjfx-cache</option>
+                    </options>
                 </configuration>
             </plugin>
         </plugins>

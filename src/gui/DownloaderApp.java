@@ -18,8 +18,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class DownloaderApp extends Application {
+    static {
+        JavaFxRuntime.configureNativeCache();
+    }
+
     private DownloadManager manager;
-    private final TextField urlField = new TextField("https://speed.hetzner.de/100MB.bin");
+    private final TextField urlField = new TextField("http://speedtest.tele2.net/100MB.zip");
     private final TextField outputField = new TextField("downloads/gui-download.bin");
     private final Spinner<Integer> threadSpinner = new Spinner<>(1, 32, 4);
     private final ProgressBar progressBar = new ProgressBar(0);
@@ -109,6 +113,7 @@ public class DownloaderApp extends Application {
     }
 
     public static void main(String[] args) {
+        JavaFxRuntime.configureNativeCache();
         launch(args);
     }
 }
